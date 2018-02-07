@@ -6,7 +6,7 @@
 #    By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 13:58:01 by sgarcia           #+#    #+#              #
-#    Updated: 2018/01/04 15:45:17 by sgarcia          ###   ########.fr        #
+#    Updated: 2018/02/07 13:48:25 by sgarcia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,12 @@ SRCS =		ft_bzero.c		\
 			ft_lstdelone.c	\
 			ft_lstdel.c		\
 			ft_lstiter.c	\
-			ft_lstmap.c
+			ft_lstmap.c		\
+			strdup_free.c	\
+			first_occ.c		\
+			strdup_free.c	\
+			strjoin_free1.c	\
+			strjoin_free2.c	
 
 OBJS = $(SRCS:.c=.o)
 

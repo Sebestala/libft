@@ -6,7 +6,7 @@
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 12:05:27 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/01/29 17:17:39 by sgarcia          ###   ########.fr       */
+/*   Updated: 2018/01/29 20:35:05 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *s, int c)
 	size_t	i;
 	char	ch;
 
-	if (!s)
+	if (!(s))
 		return (NULL);
 	ch = c;
 	i = 0;

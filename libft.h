@@ -6,7 +6,7 @@
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 20:26:43 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/01/04 15:24:15 by sgarcia          ###   ########.fr       */
+/*   Updated: 2018/02/07 13:47:40 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,9 @@ void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+char				*strdup_free(char *s1);
+int					first_occ(char *str, char c);
+char				*strjoin_free(char const *s1, char const *s2);
+char				*strjoin_free1(char const *s1, char const *s2);
+char				*strjoin_free2(char const *s1, char const *s2);
 #endif

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   first_occ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/01 19:50:13 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/02/02 17:08:32 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/02/07 10:51:31 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/02/07 10:54:48 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int		first_occ(char *str, char c)
 {
-	size_t	i;
+	int				i;
 
 	i = 0;
-	while (i < n)
+	if (!str)
+		return (-1);
+	if (str[i] == c)
+		return (0);
+	while (str[i])
 	{
-		((char *)s)[i] = '\0';
+		if (str[i] == c)
+			return (i);
 		i++;
+		if (c == '\0' && str[i] == '\0')
+			return (i);
 	}
+	return (-1);
 }
