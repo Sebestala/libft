@@ -6,7 +6,7 @@
 #    By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 13:58:01 by sgarcia           #+#    #+#              #
-#    Updated: 2018/02/07 13:48:25 by sgarcia          ###   ########.fr        #
+#    Updated: 2018/05/21 18:14:46 by sgarcia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,8 @@ SRCS =		ft_bzero.c		\
 			first_occ.c		\
 			strdup_free.c	\
 			strjoin_free1.c	\
-			strjoin_free2.c	
+			strjoin_free2.c	\
+			get_next_line.c
 
 OBJS = $(SRCS:.c=.o)
 

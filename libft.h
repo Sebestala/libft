@@ -6,13 +6,14 @@
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 20:26:43 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/02/07 13:47:40 by sgarcia          ###   ########.fr       */
+/*   Updated: 2018/05/21 18:14:23 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "get_next_line.h"
 # include <string.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -24,11 +25,6 @@ typedef	struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
-typedef unsigned char	t_u8;
-typedef unsigned short	t_u16;
-typedef unsigned int	t_u32;
-typedef unsigned long	t_u64;
 
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(const char *s1);
@@ -94,4 +90,5 @@ int					first_occ(char *str, char c);
 char				*strjoin_free(char const *s1, char const *s2);
 char				*strjoin_free1(char const *s1, char const *s2);
 char				*strjoin_free2(char const *s1, char const *s2);
+int					get_next_line(const int fd, char **line);
 #endif
