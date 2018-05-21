@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   printab.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/01 23:37:51 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/03/22 15:22:26 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/03/13 17:20:49 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/03/13 17:25:07 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	printab(char **tab)
 {
-	size_t	i;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (i < n)
+	j = 0;
+	while (tab[i])
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		if (((unsigned char *)src)[i] == (unsigned char)c)
-			return ((unsigned char *)dst + i + 1);
+		while (tab[i][j])
+		{
+			j++;
+		}
+		write(1, tab[i], j);
+		j = 0;
 		i++;
 	}
-	return (NULL);
 }
