@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   tabnew.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 18:23:40 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/21 18:23:16 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/05/24 16:14:03 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/05/24 16:18:50 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	**tabnew(int x, int y)
 {
-	unsigned char	chara;
-	unsigned char	*copy;
+	int		i;
+	char	**tab;
 
-	chara = c;
-	copy = b;
-	if (len == 0)
-		return (b);
-	while (len > 0)
+	i = 0;
+	tab = ft_memalloc(y + 1);
+	while (i <= y)
 	{
-		copy[len - 1] = chara;
-		len--;
+		tab[i] = ft_memalloc(x + 1);
+		i++;
 	}
-	return (copy);
+	return (tab);
 }

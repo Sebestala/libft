@@ -6,7 +6,7 @@
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 20:26:43 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/21 18:14:23 by sgarcia          ###   ########.fr       */
+/*   Updated: 2018/05/24 16:19:19 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,13 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*strdup_free(char *s1);
-int					first_occ(char *str, char c);
+int					first_occ_of_char(char *str, char c);
 char				*strjoin_free(char const *s1, char const *s2);
 char				*strjoin_free1(char const *s1, char const *s2);
 char				*strjoin_free2(char const *s1, char const *s2);
 int					get_next_line(const int fd, char **line);
+int					atoi_end_index(char **str);
+int					atoi_my(char *str);
+int					atoi_start_index(char **str);
+char				**tabnew(int x, int y);
 #endif

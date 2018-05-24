@@ -6,7 +6,7 @@
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 19:01:42 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/21 18:15:25 by sgarcia          ###   ########.fr       */
+/*   Updated: 2018/05/23 21:53:36 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static	int		verif_line(int fd, char **line, char **copy, t_read r)
 		return (-1);
 	else
 	{
-		if (r.i > 0 && first_occ(*line, '\n') != -1)
+		if (r.i > 0 && first_occ_of_char(*line, '\n') != -1)
 			copy[fd] = strdup_free(r.buf[fd]);
-		if ((r.i == -2 || r.i > 0) && first_occ(*line, '\n') >= 0)
+		if ((r.i == -2 || r.i > 0) && first_occ_of_char(*line, '\n') >= 0)
 		{
-			line[0][first_occ(*line, '\n')] = '\0';
+			line[0][first_occ_of_char(*line, '\n')] = '\0';
 			r.i = ft_strlen(ft_strchr(copy[fd], '\n') + 1) + 1;
 			copy[fd] = ft_memcpy(copy[fd],
 					(ft_strchr(copy[fd], '\n') + 1), r.i);
@@ -45,7 +45,8 @@ int				get_next_line(const int fd, char **line)
 	if (!copy[fd])
 		copy[fd] = ft_strnew(BUFF_SIZE + 1);
 	*line = ft_strdup(copy[fd]);
-	while ((first_occ(*line, '\n') == -1) && (r.i == BUFF_SIZE || r.i == -2))
+	while ((first_occ_of_char(*line, '\n') == -1)
+			&& (r.i == BUFF_SIZE || r.i == -2))
 	{
 		r.i = read(fd, r.buf[fd], BUFF_SIZE);
 		if (r.i >= 0)
@@ -54,8 +55,8 @@ int				get_next_line(const int fd, char **line)
 			*line = strjoin_free1(*line, r.buf[fd]);
 		}
 	}
-	if (r.i != 0 ||
-			(first_occ(*line, '\n') == -1 && first_occ(*line, '\0') > 0))
+	if (r.i != 0 || (first_occ_of_char(*line, '\n') == -1
+				&& first_occ_of_char(*line, '\0') > 0))
 		return (verif_line(fd, &*line, &*copy, r));
 	else
 		return (0);

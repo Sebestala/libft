@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   first_occ_of_char.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 18:23:40 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/21 18:23:16 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/05/23 17:49:50 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/05/23 17:49:52 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int		first_occ_of_char(char *str, char c)
 {
-	unsigned char	chara;
-	unsigned char	*copy;
+	int				i;
 
-	chara = c;
-	copy = b;
-	if (len == 0)
-		return (b);
-	while (len > 0)
+	i = 0;
+	if (!str)
+		return (-1);
+	if (str[i] == c)
+		return (0);
+	while (str[i])
 	{
-		copy[len - 1] = chara;
-		len--;
+		if (str[i] == c)
+			return (i);
+		i++;
+		if (c == '\0' && str[i] == '\0')
+			return (i);
 	}
-	return (copy);
+	return (-1);
 }
