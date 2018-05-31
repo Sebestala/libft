@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   is_strn_on.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 20:11:17 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/25 18:23:22 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/05/29 20:02:34 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/05/30 20:09:17 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		is_strn_on(char *str1, char *str2, int len)
 {
-	size_t			i;
-	unsigned char	*copy;
-	unsigned char	occ;
+	int		i;
+	int		j;
 
 	i = 0;
-	copy = (unsigned char *)s;
-	occ = c;
-	while (i < n)
+	if (!str1 || !str2)
+		return (-1);
+	while (str1[i] && i < len)
 	{
-		if (copy[i] == occ)
-			return (&copy[i]);
+		j = 0;
+		while (str1[i] == str2[j] && i < len)
+		{
+			i++;
+			j++;
+			if (!str2[j])
+				return (1);
+		}
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

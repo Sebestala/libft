@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   rainbow.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 20:11:17 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/25 18:23:22 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/05/31 16:28:04 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/05/31 16:58:11 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	rainbow(int index)
 {
-	size_t			i;
-	unsigned char	*copy;
-	unsigned char	occ;
+	char	c;
 
-	i = 0;
-	copy = (unsigned char *)s;
-	occ = c;
-	while (i < n)
+	c = (index % 7 + 1) + 48;
+	if (index == -1)
+		write(1, "\033[37m", 5);
+	else
 	{
-		if (copy[i] == occ)
-			return (&copy[i]);
-		i++;
+		write(1, "\033[3", 3);
+		write(1, &c, 1);
+		write(1, "m", 1);
 	}
-	return (NULL);
 }

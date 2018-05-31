@@ -6,7 +6,7 @@
 #    By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 13:58:01 by sgarcia           #+#    #+#              #
-#    Updated: 2018/05/24 16:19:45 by sgarcia          ###   ########.fr        #
+#    Updated: 2018/05/31 16:58:58 by sgarcia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,16 @@ SRCS =		ft_bzero.c				\
 			atoi_end_index.c		\
 			atoi_start_index.c		\
 			atoi_my.c				\
-			tabnew.c
+			tabnew.c				\
+			printab.c				\
+			printab_fd.c			\
+			tabfree.c				\
+			tabdup.c				\
+			calc_val_absolue.c		\
+			is_str_on.c				\
+			is_strn_on.c			\
+			rainbow.c				\
+			rainbow_back.c
 
 OBJS = $(SRCS:.c=.o)
 

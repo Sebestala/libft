@@ -6,7 +6,7 @@
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 20:26:43 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/24 16:19:19 by sgarcia          ###   ########.fr       */
+/*   Updated: 2018/05/31 16:58:38 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,13 @@ int					atoi_end_index(char **str);
 int					atoi_my(char *str);
 int					atoi_start_index(char **str);
 char				**tabnew(int x, int y);
+void				printab(char **tab);
+void				printab_fd(char **tab, int fd);
+void				tabfree(char ***tab);
+char				**tabdup(char **tab);
+int					calc_val_absolue(int nb1, char op, int nb2);
+int					is_str_on(char *str1, char *str2);
+int					is_strn_on(char *str1, char *str2, int len);
+void				rainbow(int index);
+void				rainbow_back(int index);
 #endif

@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   tabfree.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 20:11:17 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/25 18:23:22 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/05/27 20:20:43 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/05/27 21:12:46 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void		tabfree(char ***tab)
 {
-	size_t			i;
-	unsigned char	*copy;
-	unsigned char	occ;
+	int		i;
+	int		j;
 
+	if (tab == NULL || tab[0] == NULL)
+		return ;
 	i = 0;
-	copy = (unsigned char *)s;
-	occ = c;
-	while (i < n)
+	j = 0;
+	while (tab[0][i])
 	{
-		if (copy[i] == occ)
-			return (&copy[i]);
+		if (tab[0][i] != NULL)
+		{
+			free(tab[0][i]);
+			tab[0][i] = NULL;
+		}
 		i++;
 	}
-	return (NULL);
+	free(*tab);
+	*tab = NULL;
 }

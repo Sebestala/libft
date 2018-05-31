@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   tabdup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 20:11:17 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/25 18:23:22 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/05/28 17:25:38 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/05/30 17:10:53 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	**tabdup(char **tab)
 {
-	size_t			i;
-	unsigned char	*copy;
-	unsigned char	occ;
+	int		i;
+	int		j;
+	char	**copy;
 
 	i = 0;
-	copy = (unsigned char *)s;
-	occ = c;
-	while (i < n)
+	while (tab[i])
+		i++;
+	if (!(copy = (char **)malloc(sizeof(char *) * (i + 1))))
+		return (NULL);
+	copy[i] = NULL;
+	i = 0;
+	while (copy[i])
 	{
-		if (copy[i] == occ)
-			return (&copy[i]);
+		j = 0;
+		while (tab[i][j])
+			j++;
+		if (!(copy[i] = (char *)malloc(sizeof(char) * (j + 1))))
+			return (NULL);
+		j = -1;
+		while (tab[i][++j])
+			copy[i][j] = tab[i][j];
+		copy[i][j] = '\0';
 		i++;
 	}
-	return (NULL);
+	return (copy);
 }

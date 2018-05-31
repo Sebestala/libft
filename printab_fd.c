@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   printab_fd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 20:11:17 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/25 18:23:22 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/05/25 19:43:09 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/05/25 19:43:54 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	printab_fd(char **tab, int fd)
 {
-	size_t			i;
-	unsigned char	*copy;
-	unsigned char	occ;
+	int		i;
+	int		j;
 
 	i = 0;
-	copy = (unsigned char *)s;
-	occ = c;
-	while (i < n)
+	j = 0;
+	while (tab[i])
 	{
-		if (copy[i] == occ)
-			return (&copy[i]);
+		while (tab[i][j])
+			j++;
+		write(fd, tab[i], j);
+		write(fd, "\n", 1);
+		j = 0;
 		i++;
 	}
-	return (NULL);
 }

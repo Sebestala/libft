@@ -6,7 +6,7 @@
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/24 16:14:03 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/24 16:18:50 by sgarcia          ###   ########.fr       */
+/*   Updated: 2018/05/27 20:59:14 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,21 @@
 char	**tabnew(int x, int y)
 {
 	int		i;
+	int		j;
 	char	**tab;
 
 	i = 0;
-	tab = ft_memalloc(y + 1);
-	while (i <= y)
+	if (!(tab = (char **)malloc(sizeof(char *) * (y + 1))))
+		return (NULL);
+	while (i < y)
 	{
-		tab[i] = ft_memalloc(x + 1);
+		if (!(tab[i] = (char *)malloc(sizeof(char) * (x + 1))))
+			return (NULL);
+		j = 0;
+		while (j <= x)
+			tab[i][j++] = '\0';
 		i++;
 	}
+	tab[i] = NULL;
 	return (tab);
 }
