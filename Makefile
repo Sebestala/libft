@@ -6,14 +6,19 @@
 #    By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 13:58:01 by sgarcia           #+#    #+#              #
-#    Updated: 2018/05/31 16:58:58 by sgarcia          ###   ########.fr        #
+#    Updated: 2018/06/05 20:34:59 by sgarcia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
 CFLAGS = -Wall -Wextra -Werror
-HEADER = libft.h
-SRCS =		ft_bzero.c				\
+
+HEADER = src/
+
+DIR_S = src/
+
+SRC =		ft_bzero.c				\
 			ft_memset.c				\
 			ft_memcpy.c				\
 			ft_memccpy.c			\
@@ -91,18 +96,31 @@ SRCS =		ft_bzero.c				\
 			rainbow.c				\
 			rainbow_back.c
 
-OBJS = $(SRCS:.c=.o)
+DIR_PRINTF = src/ft_printf/
+
+PRINTF	 = libftprintf.a
+
+OBJS = $(addprefix $(DIR_S), $(SRC:.c=.o))
 
 all: $(NAME)
 
-$(NAME):
-	@gcc $(CFLAGS) -I $(HEADER) -c $(SRCS)
-	@ar -rc $(NAME) $(OBJS)
+$(NAME): $(PRINTF) $(OBJS)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
+$(DIR_S)%.o: $(DIR_S)%.c $(DIR_S)libft.h $(DIR_S)get_next_line.h
+	@echo "compilation de $< \033[32m ok \033[0m"
+	@$(CC) $(FLAGS) -o $@ -c $<
+
+$(PRINTF) :
+	make -C $(DIR_PRINTF)
+	cp $(DIR_PRINTF)/$(PRINTF) ./$(NAME)
 clean:
+	make -C $(DIR_PRINTF) clean
 	@rm -f $(OBJS)
 
 fclean: clean
+	make -C $(DIR_PRINTF) fclean
 	@rm -f $(NAME)
 
 re: fclean all
