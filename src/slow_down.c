@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   slow_down.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/26 20:37:53 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/06/08 20:21:16 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/06/08 16:10:32 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/06/08 16:12:44 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <sys/uio.h>
-# include <limits.h>
-# define BUFF_SIZE 420
+#include "libft.h"
 
-typedef	struct		s_read
+void	slow_down(int time)
 {
-	char	*buf[OPEN_MAX];
-	int		i;
-}					t_read;
+	int	i;
 
-int					get_next_line(const int fd, char **line, int start);
-
-#endif
+	while (time > 0)
+	{
+		i = 0;
+		while (i < 50000)
+		{
+			i++;
+		}
+		time--;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 17:25:38 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/05/30 17:10:53 by sgarcia          ###   ########.fr       */
+/*   Updated: 2018/06/08 19:19:54 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**tabdup(char **tab)
 		return (NULL);
 	copy[i] = NULL;
 	i = 0;
-	while (copy[i])
+	while (tab[i])
 	{
 		j = 0;
 		while (tab[i][j])

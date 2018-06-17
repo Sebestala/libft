@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   dlst_is_empty.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/26 20:37:53 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/06/08 20:21:16 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/06/14 20:52:18 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/06/14 20:52:20 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <sys/uio.h>
-# include <limits.h>
-# define BUFF_SIZE 420
+#include "libft.h"
 
-typedef	struct		s_read
+int			dlst_is_empty(t_node *dlst)
 {
-	char	*buf[OPEN_MAX];
-	int		i;
-}					t_read;
-
-int					get_next_line(const int fd, char **line, int start);
-
-#endif
+	if (dlst == NULL)
+		return (1);
+	return (0);
+}

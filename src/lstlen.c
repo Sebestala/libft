@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   lstlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/26 20:37:53 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/06/08 20:21:16 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/06/14 17:48:50 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/06/14 19:21:02 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <sys/uio.h>
-# include <limits.h>
-# define BUFF_SIZE 420
+#include "libft.h"
 
-typedef	struct		s_read
+int			lstlen(t_lst *lst)
 {
-	char	*buf[OPEN_MAX];
-	int		i;
-}					t_read;
+	int		size;
 
-int					get_next_line(const int fd, char **line, int start);
-
-#endif
+	size = 0;
+	if (lst_is_empty(lst))
+		return (size);
+	while (lst != NULL)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
+}

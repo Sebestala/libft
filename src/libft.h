@@ -6,7 +6,7 @@
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 20:26:43 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/06/05 20:32:34 by sgarcia          ###   ########.fr       */
+/*   Updated: 2018/06/15 18:25:28 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,30 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef	struct		s_dlst
+{
+	int				len;
+	struct s_node	*begin;
+	struct s_node	*end;
+}					t_dlst;
+
+typedef	struct		s_node
+{
+	int				id;
+	int				statut;
+	char			*name;
+	struct s_node	*next;
+	struct s_node	*back;
+}					t_node;
+
+typedef	struct		s_lst
+{
+	int				id;
+	int				statut;
+	char			*name;
+	struct s_lst	*next;
+}					t_lst;
 
 typedef	struct		s_list
 {
@@ -55,9 +79,9 @@ char				*ft_strncat(char *s1, const char *s2, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 void				*ft_memalloc(size_t size);
 void				ft_putchar(char c);
-void				ft_putchar_fd(char c, int fd);
+void				ft_putchar_fd(int fd, char c);
 void				ft_putnbr(int n);
-void				ft_putstr_fd(char const *s, int fd);
+void				ft_putstr_fd(int fd, char const *s);
 void				ft_putstr(char const *s);
 char				*ft_strnew(size_t size);
 void				ft_strdel(char **as);
@@ -66,7 +90,7 @@ void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				ft_putendl(char const *s);
-void				ft_putendl_fd(char const *s, int fd);
+void				ft_putendl_fd(int fd, char const *s);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strjoin(char const *s1, char const *s2);
@@ -78,7 +102,7 @@ char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				*ft_memmove(void *dst, const void *src, size_t len);
 int					ft_atoi(const char *str);
-void				ft_putnbr_fd(int n, int fd);
+void				ft_putnbr_fd(int fd, int n);
 void				ft_lstadd(t_list **alst, t_list *ne);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -88,9 +112,9 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*strdup_free(char *s1);
 int					first_occ_of_char(char *str, char c);
 char				*strjoin_free(char const *s1, char const *s2);
-char				*strjoin_free1(char const *s1, char const *s2);
+char				*strjoin_free1(char *s1, char *s2);
 char				*strjoin_free2(char const *s1, char const *s2);
-int					get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line, int start);
 int					atoi_end_index(char **str);
 int					atoi_my(char *str);
 int					atoi_start_index(char **str);
@@ -104,4 +128,18 @@ int					is_str_on(char *str1, char *str2);
 int					is_strn_on(char *str1, char *str2, int len);
 void				rainbow(int index);
 void				rainbow_back(int index);
+void				slow_down(int time);
+int					lst_is_empty(t_lst *lst);
+void				print_lst_name(t_lst *lst);
+int					lstlen(t_lst *lst);
+void				print_lst_id(t_lst *lst);
+t_lst				*lst_insert_front(t_lst *lst, int id, char *name);
+t_lst				*lst_insert_back(t_lst *lst, int id, char *name);
+void				lst_delete_front(t_lst **lst);
+void				lst_delete_back(t_lst **lst);
+void				lst_delete(t_lst **lst);
+int					dlst_is_empty(t_node *dlst);
+t_node				*dlst_delete_front(t_node *dlst);
+void				exit_str(char *str);
+
 #endif

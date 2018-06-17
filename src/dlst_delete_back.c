@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   dlst_delete_back.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/26 20:37:53 by sgarcia           #+#    #+#             */
-/*   Updated: 2018/06/08 20:21:16 by sgarcia          ###   ########.fr       */
+/*   Created: 2018/06/14 20:51:19 by sgarcia           #+#    #+#             */
+/*   Updated: 2018/06/14 20:51:23 by sgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <sys/uio.h>
-# include <limits.h>
-# define BUFF_SIZE 420
+#include "libft.h"
 
-typedef	struct		s_read
+t_node		*dlst_delete_back(t_node *dlst)
 {
-	char	*buf[OPEN_MAX];
-	int		i;
-}					t_read;
+	t_node		*before;
+	t_node		*tmp;
 
-int					get_next_line(const int fd, char **line, int start);
-
-#endif
+	if (dlst_is_empty(dlst))
+		return (NULL);
+	if (dlst->next == NULL)
+	{
+		free(dlst);
+		dlst = NULL;
+		return (NULL);
+	}
+	while (tmp->next != NULL)
+	{
+		before = tmp;
+		tmp = tmp->next;
+	}
+	before->next = NULL;
+	free(tmp);
+	tmp = NULL;
+	return (dlst);
+}

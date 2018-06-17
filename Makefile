@@ -6,7 +6,7 @@
 #    By: sgarcia <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 13:58:01 by sgarcia           #+#    #+#              #
-#    Updated: 2018/06/05 20:34:59 by sgarcia          ###   ########.fr        #
+#    Updated: 2018/06/14 21:05:57 by sgarcia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,18 @@ SRC =		ft_bzero.c				\
 			is_str_on.c				\
 			is_strn_on.c			\
 			rainbow.c				\
-			rainbow_back.c
+			rainbow_back.c			\
+			slow_down.c				\
+			lst_is_empty.c			\
+			print_lst_name.c		\
+			lstlen.c				\
+			print_lst_id.c			\
+			lst_insert_front.c		\
+			lst_insert_back.c		\
+			lst_delete_front.c		\
+			lst_delete_back.c		\
+			lst_delete.c			\
+			exit_str.c
 
 DIR_PRINTF = src/ft_printf/
 
